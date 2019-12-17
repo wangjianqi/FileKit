@@ -30,6 +30,7 @@ import Foundation
 // MARK: FileKitError
 
 /// An error that can be thrown by FileKit.
+//错误
 public enum FileKitError: Error {
 
     /// A file does not exist.
@@ -74,6 +75,7 @@ public enum FileKitError: Error {
     // MARK: - Reason
 
     /// An error that could be cause of `FileKitError`
+    //枚举嵌套
     enum ReasonError: Error {
         /// Failed to read or convert to specific type.
         case conversion(Any)

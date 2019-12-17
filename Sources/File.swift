@@ -127,6 +127,7 @@ open class File<DataType: ReadableWritable>: Comparable {
     ///
     /// - Throws: `FileKitError.DeleteFileFail`
     ///
+    //删除
     open func delete() throws {
         try path.deleteFile()
     }
@@ -259,7 +260,7 @@ extension File: CustomStringConvertible {
     }
 
 }
-
+// debug
 extension File: CustomDebugStringConvertible {
 
     // MARK: - CustomDebugStringConvertible

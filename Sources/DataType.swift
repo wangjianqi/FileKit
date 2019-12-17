@@ -31,6 +31,7 @@ import Foundation
 public typealias ReadableWritable = Readable & Writable
 
 /// A type that can be used to read from File instances.
+// 可读协议
 public protocol Readable {
 
     /// Creates `Self` from the contents of a Path.
@@ -47,6 +48,7 @@ extension Readable {
     ///
     /// - Parameter path: The path being read from.
     ///
+    //构造方法
     public init(contentsOfPath path: Path) throws {
         self = try Self.read(from: path)
     }
@@ -54,6 +56,7 @@ extension Readable {
 }
 
 /// A type that can be used to write to File instances.
+//可写协议
 public protocol Writable {
 
     /// Writes `self` to a Path.
@@ -97,6 +100,7 @@ public protocol WritableToFile: Writable {
     /// - Returns: `true` if the writing completed successfully, or `false` if
     ///            the writing failed.
     ///
+    //写入
     func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
 
 }

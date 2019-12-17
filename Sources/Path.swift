@@ -42,6 +42,7 @@ public struct Path {
     public static let separator = "/"
 
     /// The root path.
+    //root路径
     public static let root = Path(separator)
 
     /// The path of the program's current working directory.
@@ -64,7 +65,7 @@ public struct Path {
     // MARK: - Properties
 
     fileprivate var _fmWraper = _FMWrapper()
-
+    // 嵌套类
     fileprivate class _FMWrapper {
         let unsafeFileManager = FileManager()
         weak var delegate: FileManagerDelegate?
@@ -100,6 +101,7 @@ public struct Path {
     ///
     /// Some NSAPI may throw `NSInvalidArgumentException` when path is `""`, which can't catch in swift
     /// and cause crash
+    //路径
     internal var _safeRawValue: String {
         return rawValue.isEmpty ? "." : rawValue
     }
@@ -292,6 +294,7 @@ public struct Path {
     }
 
     /// The path's extension.
+    //扩展
     public var pathExtension: String {
         get {
             return (rawValue as NSString).pathExtension
@@ -328,6 +331,7 @@ public struct Path {
     }
 
     /// Initializes a path to the string's value.
+    //Tilde:波浪号
     public init(_ path: String, expandingTilde: Bool = false) {
         // empty path may cause crash
         if expandingTilde {
@@ -660,6 +664,7 @@ extension Path {
     /// - Throws: `FileKitError.DeleteFileFail`
     ///
     /// this method does not follow links.
+    //删除文件
     public func deleteFile() throws {
         do {
             try _fmWraper.fileManager.removeItem(atPath: _safeRawValue)
